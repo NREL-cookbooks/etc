@@ -1,0 +1,11 @@
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+
+<% if(node.recipe?("ruby_enterprise")) -%>
+PATH="<%= node[:ruby_enterprise][:bin_dir] %>:$PATH"
+<% end -%>
+
+<% if(node.recipe?("oracle_instantclient")) -%>
+LD_LIBRARY_PATH="<%= node[:oracle_instantclient][:path] %>:$LD_LIBRARY_PATH"
+ORACLE_HOME="<%= node[:oracle_instantclient][:path] %>"
+TNS_ADMIN="<%= node[:oracle_instantclient][:path] %>"
+<% end -%>
