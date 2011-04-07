@@ -11,3 +11,7 @@ LD_LIBRARY_PATH="<%= node[:oracle_instantclient][:path] %>"
 ORACLE_HOME="<%= node[:oracle_instantclient][:path] %>"
 TNS_ADMIN="<%= node[:oracle_instantclient][:path] %>"
 <% end -%>
+
+<% if(node.recipe?("opsview::server") || node.recipe?("opsview::client")) -%>
+PERL5LIB="/usr/local/nagios/perl/lib"
+<% end -%>
