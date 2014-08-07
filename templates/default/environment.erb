@@ -6,7 +6,7 @@
 
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 
-<% if(node.recipe?("oracle_instantclient")) -%>
+<% if(node.recipe?("oracle_instantclient::environment")) -%>
 LD_LIBRARY_PATH="<%= node[:oracle_instantclient][:path] %>"
 ORACLE_HOME="<%= node[:oracle_instantclient][:path] %>"
 TNS_ADMIN="<%= node[:oracle_instantclient][:path] %>"
