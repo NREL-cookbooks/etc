@@ -15,3 +15,7 @@ TNS_ADMIN="<%= node[:oracle_instantclient][:path] %>"
 <% if(node.recipe?("opsview::server") || node.recipe?("opsview::client")) -%>
 PERL5LIB="/usr/local/nagios/perl/lib"
 <% end -%>
+
+<% if(node.recipe?("buildingagent::web")) -%>
+TS_NODE="/opt/nodejs/bin/node"
+<% end -%>
